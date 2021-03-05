@@ -191,7 +191,7 @@ jobs:
           AWS_S3_BUCKET_NAME: "nr-downloads-ohai-staging"
           AWS_S3_LOCK_BUCKET_NAME: "onhost-ci-lock-staging"
         with:
-          disable_lock: false
+          disable_lock: true
           run_id: ${{ github.run_id }}
           env: pre-release
           tag: ${{env.TAG}}
