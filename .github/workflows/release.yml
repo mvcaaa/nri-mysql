@@ -27,8 +27,8 @@ jobs:
       - name: Publish to S3 action
         uses: newrelic/infrastructure-publish-action@main
         env:
-          AWS_S3_BUCKET_NAME: "nr-downloads"
-          AWS_S3_LOCK_BUCKET_NAME: "nr-downloads"
+          AWS_S3_BUCKET_NAME: "nr-downloads-main"
+          AWS_S3_LOCK_BUCKET_NAME: "onhost-ci-lock"
           AWS_REGION: "us-east-1"
         with:
           # lock enabled
