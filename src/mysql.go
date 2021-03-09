@@ -23,6 +23,7 @@ type argumentList struct {
 	sdk_args.DefaultArgumentList
 	Hostname              string `default:"localhost" help:"Hostname or IP where MySQL is running."`
 	Port                  int    `default:"3306" help:"Port on which MySQL server is listening."`
+	Socket                string `default:"" help:"MySQL Socket file."`
 	Username              string `help:"Username for accessing the database."`
 	Password              string `help:"Password for the given user."`
 	Database              string `help:"Database name"`
@@ -38,6 +39,10 @@ func generateDSN(args argumentList) string {
 	params := ""
 	if args.OldPasswords {
 		params = "?allowOldPasswords=true"
+	}
+
+	if args.Socket != "" {
+		return fmt.Sprintf("%s:%s@unix(%s)/%s%s", args.Username, args.Password, args.Socket, args.Database, params)
 	}
 
 	return fmt.Sprintf("%s:%s@tcp(%s:%d)/%s%s", args.Username, args.Password, args.Hostname, args.Port, args.Database, params)
