@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Added
+- New parameter for MySQL local socket connection. Local socket connection is secure so MySQL will not complain about non-secure connection when `require_secure_transport = ON`.
+
 ## 1.5.0 (2020-01-14)
 ### Added
 - Metrics for commits and rollbacks.
-- New parameter for MySQL local socket connection. Local socket connection is secure so MySQL will not complain about non-secure connection when `require_secure_transport = ON`.
 
 ## 1.4.0 (2019-11-18)
 ### Changed
